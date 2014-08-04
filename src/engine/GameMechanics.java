@@ -1,21 +1,21 @@
-package logic;
+package engine;
+
+import game.Board;
+import game.Field;
+import game.Horse;
 
 import java.util.LinkedList;
 
-import engine.Board;
-import engine.Horse;
-import engine.Field;
-
-public class Logic {
+public class GameMechanics {
 	private Board board;
 	
-	public Logic(LinkedList<Horse> horses){
+	public GameMechanics(LinkedList<Horse> horses){
 		board = new Board();
 		setInitialPosition(horses);
 	}
 	
 	public int forwardBoard(Horse horse, int fields){
-		int horsePosition = findPositionHorse(horse);
+		int horsePosition = findHorsePosition(horse);
 		
 		if(horsePosition + fields == 80){
 			return 80;
@@ -26,7 +26,7 @@ public class Logic {
 		return 0; //can't move
 	}
 	
-	private int findPositionHorse(Horse horse){
+	private int findHorsePosition(Horse horse){
 		for(Field field : board.getFields()){
 			if(field.containHorse(horse))
 				return field.getPosition();

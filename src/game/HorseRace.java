@@ -3,18 +3,16 @@ package game;
 import java.util.LinkedList;
 import java.util.Random;
 
-import logic.Logic;
+import engine.GameMechanics;
 
-import engine.Horse;
-
-public class Game {
+public class HorseRace {
 	private LinkedList<Horse> horses; 
-	private Logic logic ;
+	private GameMechanics logic ;
 	
-	public Game(int numberHorses){	
+	public HorseRace(int numberHorses){	
 		horses = new LinkedList<Horse>();
 		createHorses(numberHorses);
-		logic = new Logic(horses);
+		logic = new GameMechanics(horses);
 	}
 	
 	private LinkedList<Horse> createHorses(int num){

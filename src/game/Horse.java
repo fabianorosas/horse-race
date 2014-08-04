@@ -1,4 +1,4 @@
-package engine;
+package game;
 
 public class Horse {
 	private String color;

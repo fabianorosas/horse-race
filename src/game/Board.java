@@ -1,4 +1,4 @@
-package engine;
+package game;
 
 import java.util.LinkedList;
 
