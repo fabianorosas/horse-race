@@ -1,54 +1,71 @@
 package game;
 
-import java.util.LinkedList;
-import java.util.Random;
+import java.awt.EventQueue;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import app.App;
 
-import engine.GameMechanics;
+public class HorseRace extends App {
+	private Race race;
+	private static HorseRace app;
 
-public class HorseRace {
-	private LinkedList<Horse> horses; 
-	private GameMechanics logic ;
-	
-	public HorseRace(int numberHorses){	
-		horses = new LinkedList<Horse>();
-		createHorses(numberHorses);
-		logic = new GameMechanics(horses);
+	public HorseRace() {
+		super();
+	}
+
+	public void newGame(){
+		//race = new Race();
+		//race.start();
 	}
 	
-	private LinkedList<Horse> createHorses(int num){
-		LinkedList<String> colors = new LinkedList<String>();
-		colors.add("mostarda");
-		colors.add("amarelo");
-		colors.add("verde");
-		colors.add("azul");
-		colors.add("vermelho");
-		colors.add("preto");
-		
-		for(int i = 0; i < num; i++)
-			horses.add(new Horse(colors.get(i)));	
-		return horses;
+	public void loadGame(){
+		//
 	}
 	
-	private int randomNum(){
-		return (new Random()).nextInt(6);
+	public void showScoreboard(){
+		//
 	}
 	
-	public void playGame(){
-		while(true){
-			for(Horse horse :  horses){
-				int field = logic.forwardBoard(horse, randomNum());
-				
-				if(field == 0)
-					System.out.println("O cavalo " + horse.getColor() + " devera esperar a proxima rodada");
-				else if(field == 80){
-					System.out.println("O cavalo " + horse.getColor() + " ganhou a corrida. Parabens ao cavalo");
-					System.exit(0);
-				}
-				else
-					System.out.println("O cavalo " + horse.getColor() + " avancou para a casa " + field);
-			}
+	public void quit(){
+		//
+	}
+	
+	public BufferedImage getImage(String imageName){
+		try {
+			URL url = getClass().getResource("/resources/" + imageName);
+        	BufferedImage image = ImageIO.read(url);
+        	return image;
 		}
+        catch (IOException ex) {
+        	return null;
+        }
+	}	
+	
+	/**
+	 * Launch the application.
+	 * @param args Main arguments
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					setApp(new HorseRace());
+					getApp().getFrame().setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public static HorseRace getApp() {
+		return app;
+	}
+
+	public static void setApp(HorseRace app) {
+		HorseRace.app = app;
 	}
 }
-
-
