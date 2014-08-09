@@ -1,5 +1,7 @@
 package app;
 
+import game.HorseRace;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,16 +23,6 @@ public class StartScreen extends Screen {
 		panelButtons.setSize(640,480);
 		panelButtons.setLocation((screenDim.width - panelButtons.getWidth())/2, (screenDim.height - panelButtons.getHeight())/2);
 		panelButtons.setBackground(new Color(12, 12, 12));
-        // Preload audio.
-        // Number of loaded audio buffers must be 32 or less, due to a Java Sound limitation.
-        // getAudio("/bigfan.wav", 1);
-        
-
-        
-        //ImageView title = new ImageView(app.getImage("/splash.png"));
-        //title.setAnchor(0.5f, 0);
-        //title.setLocation(getWidth() / 2, 0);
-
         
         startButton = new Button("start", panelButtons);
         startButton.setPosition(2, 4);
@@ -50,6 +42,16 @@ public class StartScreen extends Screen {
             }
         });
 
+        quitButton = new Button("quit", panelButtons);
+        quitButton.setPosition(2, 3);
+        quitButton.addActionListener(new ActionListener() {
+        	@Override
+            public void actionPerformed(ActionEvent e) {
+        		HorseRace.getApp().quit();
+            }
+        });
+
+        
         panelButtons.setVisible(true);
         contentPane.add(panelButtons);
         pack();
