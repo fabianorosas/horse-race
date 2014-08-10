@@ -1,20 +1,23 @@
 package game;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
-public class Board {
+import javax.swing.JPanel;
+
+public class Board extends JPanel{
 	private final int NUMBER_OF_POSITIONS = 80; 	
-	private LinkedList<Field> fields = new LinkedList<Field>();
+	private LinkedList<Field> fields = new LinkedList<>();
 	
 	public Board(){
-		createBoard();
-	}
-	
-	public void createBoard(){
 		for(int i = 0; i < NUMBER_OF_POSITIONS; i++){
 			fields.add(new Field(i+1, 0));
 		}
 		initializeSpecialFields();
+		setVisible(true);
 	}
 	
 	public void initializeSpecialFields(){
@@ -44,5 +47,12 @@ public class Board {
 	
 	public LinkedList<Field> getFields(){
 		return this.fields;
+	}
+	
+	@Override
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		BufferedImage board = HorseRace.getApp().getImage("board.jpg"); 
+		g.drawImage(board,0,0,this.getWidth(),this.getHeight(),null);
 	}
 }

@@ -39,7 +39,12 @@ public class Button extends JButton {
         setVisible(true);
 	}
 	
-	protected void setPosition(int xFactor, int yFactor){
-		setLocation((parent.getWidth() - this.getWidth())/xFactor, (parent.getHeight() - this.getHeight())/yFactor);
+	protected void setPosition(float xFactor, float yFactor, boolean upperHalf){
+		int x = (int) ((parent.getWidth() - this.getWidth())/xFactor);
+		int y = (int) ((parent.getHeight() - this.getHeight())/yFactor);
+		if(!upperHalf){
+			y *= yFactor - 1;
+		}
+		setLocation(x, y);
 	}
 }

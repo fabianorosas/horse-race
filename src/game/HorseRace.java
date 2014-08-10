@@ -9,26 +9,14 @@ import app.App;
 
 public class HorseRace extends App {
 	private Race race;
+	
 	private static HorseRace app;
 
 	public HorseRace() {
 		super();
 	}
 
-	public void newGame(){
-		//race = new Race();
-		//race.start();
-	}
-	
-	public void loadGame(){
-		//
-	}
-	
 	public void showScoreboard(){
-		//
-	}
-	
-	public void quit(){
 		//
 	}
 	
@@ -37,8 +25,7 @@ public class HorseRace extends App {
 			URL url = getClass().getResource("/resources/" + imageName);
         	BufferedImage image = ImageIO.read(url);
         	return image;
-		}
-        catch (IOException ex) {
+		} catch (IOException ex) {
         	return null;
         }
 	}	
@@ -53,7 +40,8 @@ public class HorseRace extends App {
 			public void run() {
 				try {
 					setApp(new HorseRace());
-					getApp().getFrame().setVisible(true);
+					getApp().initialize();
+					getApp().getScreen().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
