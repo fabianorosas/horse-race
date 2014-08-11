@@ -5,13 +5,13 @@ import java.util.LinkedList;
 
 public class Field {
 	private int position;
-	private int repayment;
+	private int penalty;
 	private LinkedList<Horse> horses = new LinkedList<Horse>();
 	private Point point;
 	
-	public Field(int position, int repayment){
+	public Field(int position, int penalty){
 		this.position = position;
-		this.repayment = repayment;
+		this.penalty = penalty;
 	}
 
 	public boolean containHorse(Horse horse){
@@ -26,12 +26,12 @@ public class Field {
 		return position;
 	}
 
-	public int getRepayment(){
-		return repayment;
+	public int getPenalty(){
+		return penalty;
 	}
 	
-	public void setRepayment(int repayment){
-		this.repayment = repayment;
+	public void setPenalty(int repayment){
+		this.penalty = repayment;
 	}
 	
 	public void setHorses(Horse horse){
