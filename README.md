@@ -9,4 +9,5 @@ This is a simple Java board game in which players compete to win a race. Players
 
 
 ---
-The implementation is based on the description given in: [http://www.misteriojuvenil.com/regras/corrida_cavalos.pdf]().
++ The implementation is based on the description given in: [http://www.misteriojuvenil.com/regras/corrida_cavalos.pdf]().
++ Internationalization is still to be done.
