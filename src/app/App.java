@@ -1,14 +1,21 @@
 package app;
 
+import game.HorseRace;
+
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
+import screen.AbstractScreen;
+import screen.GameScreen;
+import screen.NewgameScreen;
+import screen.StartScreen;
 import action.BackAction;
+import action.PlayAction;
 
 public class App {
 
-	private Screen screen;
-	private Screen oldScreen;
+	private AbstractScreen screen;
+	private AbstractScreen oldScreen;
 
 	/**
 	 * Create the application.

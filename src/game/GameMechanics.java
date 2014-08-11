@@ -1,17 +1,12 @@
-package engine;
-
-import game.Board;
-import game.Field;
-import game.Horse;
+package game;
 
 import java.util.LinkedList;
 
 public class GameMechanics {
 	private Board board;
 	
-	public GameMechanics(LinkedList<Horse> horses){
-		board = new Board();
-		setInitialPosition(horses);
+	public GameMechanics(Board board){
+		this.board = board;
 	}
 	
 	public int forwardBoard(Horse horse, int fields){
@@ -41,6 +36,17 @@ public class GameMechanics {
 		board.getFields().get(horsePosition - 1).removeHorse(horse);
 		board.getFields().get(newHorsePosition - 1).setHorses(horse);
 		
+		if((newHorsePosition - 1 >= 20 && horsePosition - 1 < 20) || (newHorsePosition - 1 >= 60 && horsePosition - 1 < 60)){
+			horse.flip();
+		}
+		if(newHorsePosition <= 40){
+			horse.setLocation(board.getFields().get(newHorsePosition).getPoint());
+		} else if(newHorsePosition <= 70){
+			horse.setLocation(board.getFields().get(newHorsePosition-2).getPoint());
+		} else {
+			horse.setLocation(board.getFields().get(newHorsePosition-1).getPoint());
+		}
+				
 		return newHorsePosition;
 	}
 	
