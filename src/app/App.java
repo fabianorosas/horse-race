@@ -21,16 +21,19 @@ public class App {
 		((StartScreen) getScreen()).initialize();
 	}
 	
-	public void switchScreen(Screen newScreen){
+	public void switchScreen(AbstractScreen newScreen) throws GameInProgressException{
+		if(HorseRace.getApp().getOldScreen() instanceof GameScreen){
+			throw new GameInProgressException();
+		}
 		setOldScreen(getScreen());
 		getOldScreen().setVisible(false);
 		setScreen(newScreen);
 	}
 	
 	public void back(){
-		System.out.println(getOldScreen());
 		if(getOldScreen() != null){
-			Screen newScreen = getOldScreen();
+			AbstractScreen newScreen;
+			newScreen = getOldScreen();
 			getScreen().setVisible(false);
 			setOldScreen(getScreen());
 			setScreen(newScreen);
@@ -38,24 +41,25 @@ public class App {
 		}
 	}
 
-	public Screen getScreen() {
+	public AbstractScreen getScreen() {
 		return screen;
 	}
 
-	public void setScreen(Screen frame) {
+	public void setScreen(AbstractScreen frame) {
 		this.screen = frame;
 	}
 	
+	@SuppressWarnings("nls")
 	public static void setBackAction(JComponent component){
 		component.getInputMap().put(KeyStroke.getKeyStroke("ESCAPE"), "goBack");
 		component.getActionMap().put("goBack", new BackAction());
 	}
-
-	public Screen getOldScreen() {
+	
+	public AbstractScreen getOldScreen() {
 		return oldScreen;
 	}
 
-	public void setOldScreen(Screen oldScreen) {
+	public void setOldScreen(AbstractScreen oldScreen) {
 		this.oldScreen = oldScreen;
 	}		
 }
