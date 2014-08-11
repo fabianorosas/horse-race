@@ -1,13 +1,27 @@
 package game;
 
-public class Horse {
-	private String color;
+import java.awt.Container;
+
+import app.Sprite;
+
+public class Horse extends Sprite implements Cloneable{
 	
-	public Horse(String color){
-		this.color = color;
+	private String player;
+	
+	public Horse(String name, Container parent){
+		super(name, parent);
 	}
 
-	public String getColor(){
-		return this.color;
+	public String getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(String player) {
+		this.player = player;
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException{
+		return super.clone();
 	}
 }
