@@ -30,7 +30,7 @@ public class GameMechanics {
 	}
 	
 	private int moveHorse(Horse horse, int horsePosition, int fields){
-		int repayment = board.getFields().get(horsePosition + fields).getRepayment();
+		int repayment = board.getFields().get(horsePosition + fields).getPenalty();
 		int newHorsePosition = horsePosition + fields + repayment;
 		
 		board.getFields().get(horsePosition - 1).removeHorse(horse);

@@ -60,28 +60,28 @@ public class Board extends JPanel{
 	}
 
 	private void initializeSpecialFields(){
-		fields.get(7).setRepayment(-1);
-		fields.get(13).setRepayment(-1);
-		fields.get(15).setRepayment(-3);
-		fields.get(19).setRepayment(-1);
-		fields.get(20).setRepayment(-4);
-		fields.get(21).setRepayment(6);
-		fields.get(28).setRepayment(-1);
-		fields.get(30).setRepayment(-3);
-		fields.get(31).setRepayment(6);
-		fields.get(38).setRepayment(-1);
-		fields.get(39).setRepayment(-2);
-		fields.get(42).setRepayment(-5);
-		fields.get(43).setRepayment(-6);
-		fields.get(44).setRepayment(5);
-		fields.get(51).setRepayment(-1);
-		fields.get(53).setRepayment(-3);
-		fields.get(60).setRepayment(-4);
-		fields.get(61).setRepayment(-5);
-		fields.get(62).setRepayment(5);
-		fields.get(69).setRepayment(-1);
-		fields.get(73).setRepayment(-3);
-		fields.get(74).setRepayment(-4);
+		fields.get(7).setPenalty(-1);
+		fields.get(13).setPenalty(-1);
+		fields.get(15).setPenalty(-3);
+		fields.get(19).setPenalty(-1);
+		fields.get(20).setPenalty(-4);
+		fields.get(21).setPenalty(6);
+		fields.get(28).setPenalty(-1);
+		fields.get(30).setPenalty(-3);
+		fields.get(31).setPenalty(6);
+		fields.get(38).setPenalty(-1);
+		fields.get(39).setPenalty(-2);
+		fields.get(42).setPenalty(-5);
+		fields.get(43).setPenalty(-6);
+		fields.get(44).setPenalty(5);
+		fields.get(51).setPenalty(-1);
+		fields.get(53).setPenalty(-3);
+		fields.get(60).setPenalty(-4);
+		fields.get(61).setPenalty(-5);
+		fields.get(62).setPenalty(5);
+		fields.get(69).setPenalty(-1);
+		fields.get(73).setPenalty(-3);
+		fields.get(74).setPenalty(-4);
 	}
 	
 	private void initPositions(){				
